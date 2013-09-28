@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # import datetime
-import dateutil.parser import parse as dateParser
+from dateutil.parser import parse as dateParser
 from lxml import objectify, etree
 
 loc = 'ORC039'
@@ -20,7 +20,7 @@ def main():
 #         print e.summary
         print 'What: %s' % e['{urn:oasis:names:tc:emergency:cap:1.1}event']
         expires = dateParser(e['{urn:oasis:names:tc:emergency:cap:1.1}expires'].text)
-        print expires.strftime('%M %Y')
+        print expires.strftime('%A, %B %d, %Y, %I:%M %p')
 #         print 'Expires: %s' % datetime.datetime.strptime(e['{urn:oasis:names:tc:emergency:cap:1.1}expires'].text, '%Y-%m-%dT%H:%M:%S%z')
 
 if __name__ == "__main__" : main()
