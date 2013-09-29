@@ -19,8 +19,8 @@ def main():
 #         print e.title
 #         print e.summary
         print 'What: %s' % e['{urn:oasis:names:tc:emergency:cap:1.1}event']
+        print '    Where: %s' % e['{urn:oasis:names:tc:emergency:cap:1.1}areaDesc'].text
         expires = dateParser(e['{urn:oasis:names:tc:emergency:cap:1.1}expires'].text)
-        print expires.strftime('%A, %B %d, %Y, %I:%M %p')
-#         print 'Expires: %s' % datetime.datetime.strptime(e['{urn:oasis:names:tc:emergency:cap:1.1}expires'].text, '%Y-%m-%dT%H:%M:%S%z')
+        print '    Ends: %s' % expires.strftime('%A, %B %d, %Y, %I:%M %p')
 
 if __name__ == "__main__" : main()
